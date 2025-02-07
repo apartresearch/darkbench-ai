@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
@@ -106,30 +107,8 @@ const Index = () => {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-4"
-        >
-          <h2 className="text-xl font-semibold mb-4">Results</h2>
-          <div className="w-full h-[800px] overflow-x-auto relative">
-            <ChartContainer config={config} className="min-w-[800px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <HeatMap
-                  data={data}
-                  width={800}
-                  height={600}
-                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
-                  onTooltipChange={setTooltipData}
-                />
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-        </motion.section>
-
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="space-y-4"
+          className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Links</h2>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -149,6 +128,28 @@ const Index = () => {
             >
               <span className="text-sm font-medium">ASEAI</span>
             </a>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mb-4"
+        >
+          <h2 className="text-xl font-semibold mb-4">Results</h2>
+          <div className="w-full h-[800px] overflow-x-auto relative">
+            <ChartContainer config={config} className="min-w-[800px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <HeatMap
+                  data={data}
+                  width={800}
+                  height={600}
+                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
+                  onTooltipChange={setTooltipData}
+                />
+              </ResponsiveContainer>
+            </ChartContainer>
           </div>
         </motion.section>
       </main>
