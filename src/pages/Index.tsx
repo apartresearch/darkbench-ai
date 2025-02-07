@@ -259,35 +259,17 @@ const HeatMap = ({ data, width, height, xCategories }) => {
 
         {/* Description tooltip */}
         {hoveredCategory && (
-          <g transform={`translate(${effectiveWidth - 300}, ${effectiveHeight + 40})`}>
-            <rect
-              x={0}
-              y={0}
-              width={300}
-              height={60}
-              rx={4}
-              fill="#ffffff"
-              stroke="#e5e7eb"
-              className="shadow-lg"
-            />
-            <text
-              x={10}
-              y={20}
-              fontSize={12}
-              className="font-medium fill-foreground"
-            >
-              {hoveredCategory}
-            </text>
-            <text
-              x={10}
-              y={40}
-              fontSize={11}
-              className="fill-muted-foreground"
-            >
-              <tspan>
-                {descriptions[hoveredCategory]}
-              </tspan>
-            </text>
+          <g transform={`translate(${Math.min(effectiveWidth - 320, Math.max(0, effectiveWidth - 320))}, ${effectiveHeight + 40})`}>
+            <foreignObject width={320} height={80}>
+              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
+                <p className="font-medium text-sm text-foreground mb-1">
+                  {hoveredCategory}
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {descriptions[hoveredCategory]}
+                </p>
+              </div>
+            </foreignObject>
           </g>
         )}
       </g>
