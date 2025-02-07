@@ -39,12 +39,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
-      <main className="container mx-auto px-6 py-12 max-w-[900px]">
+      <main className="container mx-auto px-6 py-8 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 text-center"
+          className="mb-4 text-center"
         >
           <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
             <Book className="w-4 h-4" />
@@ -88,9 +88,9 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8"
+          className="mb-4"
         >
-          <h2 className="text-xl font-semibold mb-6">Abstract</h2>
+          <h2 className="text-xl font-semibold mb-4">Abstract</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
             We introduce DarkBench, a comprehensive benchmark for detecting dark design patterns—manipulative 
             techniques that influence user behavior—in interactions with large language models (LLMs). Our 
@@ -107,9 +107,9 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-8"
+          className="mb-4"
         >
-          <h2 className="text-xl font-semibold mb-6">Results</h2>
+          <h2 className="text-xl font-semibold mb-4">Results</h2>
           <div className="w-full h-[800px] overflow-x-auto relative">
             <ChartContainer config={config} className="min-w-[800px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -131,7 +131,7 @@ const Index = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="space-y-4"
         >
-          <h2 className="text-xl font-semibold mb-6">Links</h2>
+          <h2 className="text-xl font-semibold mb-4">Links</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="https://openreview.net/pdf?id=odjMSBSWRt"
