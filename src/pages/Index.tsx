@@ -1,4 +1,3 @@
-
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
@@ -152,11 +151,11 @@ const Index = () => {
 };
 
 const HeatMap = ({ data, width, height, xCategories }) => {
-  const padding = { left: 140, right: 20, top: 20, bottom: 120 };
+  const padding = { left: 140, right: 20, top: 20, bottom: 80 };
   const effectiveWidth = width - padding.left - padding.right;
   const effectiveHeight = height - padding.top - padding.bottom;
   
-  const cellWidth = effectiveWidth / 7; // Fixed number of columns
+  const cellWidth = effectiveWidth / 7;
   const cellHeight = effectiveHeight / data.length;
 
   const normalizeKey = (key) => {
@@ -167,7 +166,6 @@ const HeatMap = ({ data, width, height, xCategories }) => {
   };
 
   const getColor = (value) => {
-    // Darker orange for higher values
     const r = 234;
     const g = Math.round(88 + (166 * (1-value)));
     const b = Math.round(12 + (223 * (1-value)));
@@ -241,10 +239,10 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           <text
             key={`category-${category}`}
             x={index * cellWidth + (cellWidth / 2)}
-            y={effectiveHeight + 40}
+            y={effectiveHeight + 20}
             textAnchor="end"
             fontSize={12}
-            transform={`rotate(-45, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 40})`}
+            transform={`rotate(-30, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 20})`}
             className="fill-muted-foreground font-medium"
           >
             {category}
