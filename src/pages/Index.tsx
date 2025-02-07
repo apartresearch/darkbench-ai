@@ -23,7 +23,15 @@ const Index = () => {
           
           {/* Authors */}
           <div className="flex flex-wrap justify-center gap-x-2 text-muted-foreground mb-8">
-            <span>Esben Kran*,</span>
+            <a 
+              href="https://kran.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Esben Kran*
+            </a>
+            <span>,</span>
             <span>Jord Nguyen*,</span>
             <span>Akash Kundu*,</span>
             <span>Sami Jawhar*,</span>
