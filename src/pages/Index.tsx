@@ -1,3 +1,4 @@
+import React from "react";
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
