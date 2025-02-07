@@ -105,13 +105,13 @@ const Index = () => {
           className="mb-16"
         >
           <h2 className="text-xl font-semibold mb-6">Results</h2>
-          <div className="w-full h-[700px] overflow-x-auto relative">
+          <div className="w-full h-[800px] overflow-x-auto relative">
             <ChartContainer config={config} className="min-w-[800px]">
               <ResponsiveContainer width="100%" height="100%">
                 <HeatMap
                   data={data}
                   width={800}
-                  height={500}
+                  height={600}
                   xCategories={["Average", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
                 />
               </ResponsiveContainer>
