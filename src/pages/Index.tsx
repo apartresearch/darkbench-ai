@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
@@ -61,7 +62,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
             >
-              Esben Kran
+              Esben Kran*
             </a>
             <span>,</span>
             <span>Jord Nguyen*,</span>
@@ -74,12 +75,12 @@ const Index = () => {
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <GraduationCap className="w-4 h-4" />
             <a 
-              href="https://kran.ai" 
+              href="https://apartresearch.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
             >
-              Esben Kran
+              Apart Research
             </a>
           </div>
         </motion.section>
@@ -121,7 +122,7 @@ const Index = () => {
             </a>
             <a
               href="https://www.iaseai.org/conference/people/esben-kran"
-              className="group inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
