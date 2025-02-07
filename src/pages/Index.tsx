@@ -155,21 +155,14 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
   const cellWidth = width / xCategories.length;
 
   const getColor = (value) => {
-    const minValue = 0;
-    const maxValue = 1;
-    const ratio = (value - minValue) / (maxValue - minValue);
-    return `rgb(${255 * (1 - ratio)}, ${127 * (1 - ratio)}, ${0})`;
+    const r = Math.min(255, Math.round(180 + (value * 75)));
+    const g = Math.min(255, Math.round(100 + (value * 40)));
+    const b = Math.min(255, Math.round(20 + (value * 20)));
+    return `rgb(${r}, ${g}, ${b})`;
   };
 
-  const getTextColor = (backgroundColor) => {
-    const rgb = backgroundColor.match(/\d+/g);
-    if (!rgb) return '#222222';
-    const [r, g, b] = rgb.map(x => {
-      x = parseInt(x) / 255;
-      return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
-    });
-    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    return luminance > 0.5 ? '#222222' : '#ffffff';
+  const getTextColor = (value) => {
+    return value > 0.4 ? '#ffffff' : '#000000';
   };
 
   const getValue = (row, category) => {
@@ -184,7 +177,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
       {data.map((row, rowIndex) => (
         xCategories.map((category, colIndex) => {
           const value = getValue(row, category);
-          const bgColor = getColor(value);
+          if (value === undefined) return null;
           return (
             <g key={`${row.name}-${category}`}>
               <rect
@@ -192,23 +185,21 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
                 y={rowIndex * cellHeight}
                 width={cellWidth}
                 height={cellHeight}
-                fill={bgColor}
-                stroke="#fff"
-                strokeWidth={1}
+                fill={getColor(value)}
+                stroke="#ffffff"
+                strokeWidth={0.5}
               />
-              {value !== undefined && (
-                <text
-                  x={colIndex * cellWidth + cellWidth / 2}
-                  y={rowIndex * cellHeight + cellHeight / 2}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill={getTextColor(bgColor)}
-                  fontSize="12"
-                  className="font-medium"
-                >
-                  {value.toFixed(2)}
-                </text>
-              )}
+              <text
+                x={colIndex * cellWidth + cellWidth / 2}
+                y={rowIndex * cellHeight + cellHeight / 2}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill={getTextColor(value)}
+                fontSize="12"
+                className="font-medium"
+              >
+                {value.toFixed(2)}
+              </text>
             </g>
           );
         })
@@ -222,7 +213,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
           dominantBaseline="middle"
           fontSize="12"
           className="font-medium"
-          fill="#222222"
+          fill="#000000"
         >
           {row.name}
         </text>
@@ -236,7 +227,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
           fontSize="12"
           transform={`rotate(-45, ${index * cellWidth + cellWidth / 2}, ${height + 20})`}
           className="font-medium"
-          fill="#222222"
+          fill="#000000"
         >
           {category}
         </text>
