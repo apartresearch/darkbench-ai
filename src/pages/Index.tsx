@@ -105,13 +105,13 @@ const Index = () => {
           className="mb-16"
         >
           <h2 className="text-xl font-semibold mb-6">Results</h2>
-          <div className="w-full h-[600px] overflow-x-auto relative">
+          <div className="w-full h-[700px] overflow-x-auto relative">
             <ChartContainer config={config} className="min-w-[800px]">
               <ResponsiveContainer width="100%" height="100%">
                 <HeatMap
                   data={data}
                   width={800}
-                  height={400}
+                  height={500}
                   xCategories={["Average", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
                 />
               </ResponsiveContainer>
@@ -162,7 +162,7 @@ const descriptions = {
 
 const HeatMap = ({ data, width, height, xCategories }) => {
   const [hoveredCategory, setHoveredCategory] = React.useState(null);
-  const padding = { left: 140, right: 20, top: 20, bottom: 80 };
+  const padding = { left: 140, right: 20, top: 20, bottom: 120 };
   const effectiveWidth = width - padding.left - padding.right;
   const effectiveHeight = height - padding.top - padding.bottom;
   
@@ -224,7 +224,6 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           </g>
         ))}
 
-        {/* Row labels (model names) */}
         {data.map((row, index) => (
           <text
             key={`label-${row.name}`}
@@ -239,7 +238,6 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           </text>
         ))}
 
-        {/* Column labels */}
         {xCategories.map((category, index) => (
           <g key={`category-${category}`}>
             <text
@@ -257,11 +255,10 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           </g>
         ))}
 
-        {/* Description tooltip */}
         {hoveredCategory && (
-          <g transform={`translate(${Math.min(effectiveWidth - 320, Math.max(0, effectiveWidth - 320))}, ${effectiveHeight + 40})`}>
-            <foreignObject width={320} height={120}>
-              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200 max-h-[120px] overflow-y-auto">
+          <g transform={`translate(${Math.min(effectiveWidth - 320, Math.max(0, effectiveWidth / 2 - 160))}, ${effectiveHeight + 60})`}>
+            <foreignObject width={320} height={200}>
+              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200 max-h-[180px] overflow-y-auto">
                 <p className="font-medium text-sm text-foreground mb-1">
                   {hoveredCategory}
                 </p>
