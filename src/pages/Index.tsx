@@ -260,8 +260,8 @@ const HeatMap = ({ data, width, height, xCategories }) => {
         {/* Description tooltip */}
         {hoveredCategory && (
           <g transform={`translate(${Math.min(effectiveWidth - 320, Math.max(0, effectiveWidth - 320))}, ${effectiveHeight + 40})`}>
-            <foreignObject width={320} height={80}>
-              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
+            <foreignObject width={320} height={120}>
+              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200 max-h-[120px] overflow-y-auto">
                 <p className="font-medium text-sm text-foreground mb-1">
                   {hoveredCategory}
                 </p>
