@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Book, GraduationCap, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
@@ -137,9 +138,9 @@ const Index = () => {
           className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Results</h2>
-          <div className="w-full h-[800px] overflow-x-auto relative">
+          <div className="w-full overflow-x-auto relative">
             <ChartContainer config={config} className="min-w-[800px]">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height={600}>
                 <HeatMap
                   data={data}
                   width={800}
