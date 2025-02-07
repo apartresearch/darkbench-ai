@@ -150,55 +150,55 @@ const Index = () => {
   );
 };
 
-const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
-  const padding = 150; // Space for labels
-  const effectiveWidth = width - padding;
-  const effectiveHeight = height - padding;
-  const cellHeight = effectiveHeight / data.length;
+const HeatMap = ({ data, width, height, xCategories }) => {
+  const padding = { left: 140, right: 20, top: 20, bottom: 100 };
+  const effectiveWidth = width - padding.left - padding.right;
+  const effectiveHeight = height - padding.top - padding.bottom;
+  
   const cellWidth = effectiveWidth / xCategories.length;
+  const cellHeight = effectiveHeight / data.length;
 
-  const getColor = (value) => {
-    const alpha = value;
-    return `rgb(234, ${Math.round(88 + (166 * (1-alpha)))}, ${Math.round(12 + (223 * (1-alpha)))})`;
+  const normalizeKey = (key) => {
+    return key.toLowerCase()
+      .replace(/\s+/g, '')
+      .replace('generation', '')
+      .replace('ization', '');
   };
 
-  const getTextColor = (value) => {
+  const getColor = (value) => {
+    return `rgb(234, ${Math.round(88 + (166 * (1-value)))}, ${Math.round(12 + (223 * (1-value)))})`;
+  };
+
+  const getContrastColor = (value) => {
     return value > 0.4 ? '#ffffff' : '#1a1a1a';
   };
 
-  const getValue = (row, category) => {
-    const key = category.toLowerCase()
-      .replace(/ /g, '')
-      .replace(/generation/g, '')
-      .replace(/ization/g, '');
-    return row[key];
-  };
-
   return (
-    <svg width={width} height={height}>
-      <g transform={`translate(${padding}, 0)`}>
+    <svg width={width} height={height} className="font-inter">
+      <g transform={`translate(${padding.left}, ${padding.top})`}>
         {data.map((row, rowIndex) => (
           xCategories.map((category, colIndex) => {
-            const value = getValue(row, category);
+            const value = row[normalizeKey(category)];
             if (value === undefined) return null;
+
             return (
               <g key={`${row.name}-${category}`}>
                 <rect
                   x={colIndex * cellWidth}
                   y={rowIndex * cellHeight}
-                  width={cellWidth - 2}
-                  height={cellHeight - 2}
+                  width={cellWidth - 4}
+                  height={cellHeight - 4}
+                  rx={4}
                   fill={getColor(value)}
-                  rx={2}
-                  ry={2}
+                  className="transition-colors duration-200"
                 />
                 <text
                   x={colIndex * cellWidth + (cellWidth / 2)}
                   y={rowIndex * cellHeight + (cellHeight / 2)}
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  fill={getTextColor(value)}
-                  fontSize="12"
+                  fill={getContrastColor(value)}
+                  fontSize={12}
                   className="font-medium select-none"
                 >
                   {value.toFixed(2)}
@@ -207,35 +207,35 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
             );
           })
         ))}
+
+        {data.map((row, index) => (
+          <text
+            key={`label-${row.name}`}
+            x={-10}
+            y={index * cellHeight + (cellHeight / 2)}
+            textAnchor="end"
+            dominantBaseline="middle"
+            fontSize={12}
+            className="fill-muted-foreground font-medium"
+          >
+            {row.name}
+          </text>
+        ))}
+
+        {xCategories.map((category, index) => (
+          <text
+            key={`category-${category}`}
+            x={index * cellWidth + (cellWidth / 2)}
+            y={effectiveHeight + 30}
+            textAnchor="end"
+            fontSize={12}
+            transform={`rotate(-45, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 30})`}
+            className="fill-muted-foreground font-medium"
+          >
+            {category}
+          </text>
+        ))}
       </g>
-
-      {data.map((row, index) => (
-        <text
-          key={`label-${row.name}`}
-          x={padding - 10}
-          y={index * cellHeight + (cellHeight / 2)}
-          textAnchor="end"
-          dominantBaseline="middle"
-          fontSize="12"
-          className="font-medium fill-muted-foreground"
-        >
-          {row.name}
-        </text>
-      ))}
-
-      {xCategories.map((category, index) => (
-        <text
-          key={`category-${category}`}
-          x={padding + index * cellWidth + (cellWidth / 2)}
-          y={height - 20}
-          textAnchor="end"
-          fontSize="12"
-          transform={`rotate(-45, ${padding + index * cellWidth + (cellWidth / 2)}, ${height - 20})`}
-          className="font-medium fill-muted-foreground"
-        >
-          {category}
-        </text>
-      ))}
     </svg>
   );
 };
