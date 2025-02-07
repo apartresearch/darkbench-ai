@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Book, GraduationCap, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
@@ -179,7 +180,9 @@ const Index = () => {
               <div>
                 <h3 className="font-medium mb-1">Other</h3>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Inspect library compatibility investigation and implementation</li>
+                  <li>Inspect library implementation</li>
+                  <li>Newer model test scores</li>
+                  <li>Reproducible open code</li>
                 </ul>
               </div>
             </div>
