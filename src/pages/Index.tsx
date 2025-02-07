@@ -33,7 +33,14 @@ const Index = () => {
           
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <GraduationCap className="w-4 h-4" />
-            <span>Apart Research</span>
+            <a 
+              href="https://apartresearch.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Apart Research
+            </a>
           </div>
         </motion.section>
 
@@ -67,12 +74,12 @@ const Index = () => {
           <h2 className="text-xl font-semibold mb-6">Links</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://openreview.net/forum?id=odjMSBSWRt&referrer=%5BTasks%5D(%2Ftasks)"
+              href="https://openreview.net/pdf?id=odjMSBSWRt"
               className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="text-sm font-medium">Coming to ICLRI</span>
+              <span className="text-sm font-medium">Coming to ICLR</span>
             </a>
             <a
               href="https://www.iaseai.org/conference/people/esben-kran"
