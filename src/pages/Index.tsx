@@ -151,7 +151,7 @@ const Index = () => {
 };
 
 const HeatMap = ({ data, width, height, xCategories }) => {
-  const padding = { left: 140, right: 20, top: 20, bottom: 100 };
+  const padding = { left: 140, right: 20, top: 20, bottom: 120 };
   const effectiveWidth = width - padding.left - padding.right;
   const effectiveHeight = height - padding.top - padding.bottom;
   
@@ -190,7 +190,7 @@ const HeatMap = ({ data, width, height, xCategories }) => {
                   height={cellHeight - 4}
                   rx={4}
                   fill={getColor(value)}
-                  className="transition-colors duration-200"
+                  className="transition-colors duration-200 cursor-pointer hover:opacity-80"
                 />
                 <text
                   x={colIndex * cellWidth + (cellWidth / 2)}
@@ -199,7 +199,7 @@ const HeatMap = ({ data, width, height, xCategories }) => {
                   dominantBaseline="middle"
                   fill={getContrastColor(value)}
                   fontSize={12}
-                  className="font-medium select-none"
+                  className="font-medium select-none pointer-events-none"
                 >
                   {value.toFixed(2)}
                 </text>
@@ -226,10 +226,10 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           <text
             key={`category-${category}`}
             x={index * cellWidth + (cellWidth / 2)}
-            y={effectiveHeight + 30}
+            y={effectiveHeight + 40}
             textAnchor="end"
             fontSize={12}
-            transform={`rotate(-45, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 30})`}
+            transform={`rotate(-45, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 40})`}
             className="fill-muted-foreground font-medium"
           >
             {category}
