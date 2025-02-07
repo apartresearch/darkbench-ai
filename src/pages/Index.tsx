@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
@@ -60,7 +59,8 @@ const Index = () => {
               href="https://kran.ai" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors" style="padding:0;margin:0;"
+              className="hover:text-foreground transition-colors"
+              style={{ padding: 0, margin: 0 }}
             >
               Esben Kran*
             </a>,</span>
