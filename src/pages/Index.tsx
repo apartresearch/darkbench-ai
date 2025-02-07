@@ -32,8 +32,13 @@ const Index = () => {
     }
   };
 
+  const [tooltipData, setTooltipData] = React.useState<{
+    category: string;
+    visible: boolean;
+  } | null>(null);
+
   return (
-    <div className="min-h-screen w-full bg-background text-foreground">
+    <div className="min-h-screen w-full bg-background text-foreground relative">
       <main className="container mx-auto px-6 py-12 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -113,6 +118,7 @@ const Index = () => {
                   width={800}
                   height={600}
                   xCategories={["Average", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
+                  onTooltipChange={setTooltipData}
                 />
               </ResponsiveContainer>
             </ChartContainer>
@@ -146,6 +152,23 @@ const Index = () => {
           </div>
         </motion.section>
       </main>
+
+      <div
+        className={`fixed bottom-8 right-8 max-w-sm transition-opacity duration-200 ${
+          tooltipData?.visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {tooltipData?.category && (
+          <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+            <p className="font-medium text-sm text-foreground mb-2">
+              {tooltipData.category}
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {descriptions[tooltipData.category]}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -160,21 +183,13 @@ const descriptions = {
   "Average": "Average score across all categories"
 };
 
-const HeatMap = ({ data, width, height, xCategories }) => {
-  const [hoveredCategory, setHoveredCategory] = React.useState(null);
+const HeatMap = ({ data, width, height, xCategories, onTooltipChange }) => {
   const padding = { left: 140, right: 20, top: 20, bottom: 120 };
   const effectiveWidth = width - padding.left - padding.right;
   const effectiveHeight = height - padding.top - padding.bottom;
   
   const cellWidth = effectiveWidth / 7;
   const cellHeight = effectiveHeight / data.length;
-
-  const normalizeKey = (key) => {
-    return key.toLowerCase()
-      .replace(/\s+/g, '')
-      .replace('generation', '')
-      .replace('ization', '');
-  };
 
   const getColor = (value) => {
     const r = 234;
@@ -204,8 +219,8 @@ const HeatMap = ({ data, width, height, xCategories }) => {
                     rx={4}
                     fill={getColor(value)}
                     className="transition-colors duration-200 cursor-pointer hover:opacity-80"
-                    onMouseEnter={() => setHoveredCategory(xCategories[colIndex])}
-                    onMouseLeave={() => setHoveredCategory(null)}
+                    onMouseEnter={() => onTooltipChange({ category: xCategories[colIndex], visible: true })}
+                    onMouseLeave={() => onTooltipChange({ category: xCategories[colIndex], visible: false })}
                   />
                   <text
                     x={colIndex * cellWidth + (cellWidth / 2)}
@@ -247,28 +262,13 @@ const HeatMap = ({ data, width, height, xCategories }) => {
               fontSize={12}
               transform={`rotate(-30, ${index * cellWidth + (cellWidth / 2)}, ${effectiveHeight + 20})`}
               className="fill-muted-foreground font-medium cursor-pointer"
-              onMouseEnter={() => setHoveredCategory(category)}
-              onMouseLeave={() => setHoveredCategory(null)}
+              onMouseEnter={() => onTooltipChange({ category, visible: true })}
+              onMouseLeave={() => onTooltipChange({ category, visible: false })}
             >
               {category}
             </text>
           </g>
         ))}
-
-        {hoveredCategory && (
-          <g transform={`translate(${Math.min(effectiveWidth - 320, Math.max(0, effectiveWidth / 2 - 160))}, ${effectiveHeight + 60})`}>
-            <foreignObject width={320} height={200}>
-              <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200 max-h-[180px] overflow-y-auto">
-                <p className="font-medium text-sm text-foreground mb-1">
-                  {hoveredCategory}
-                </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {descriptions[hoveredCategory]}
-                </p>
-              </div>
-            </foreignObject>
-          </g>
-        )}
       </g>
     </svg>
   );
