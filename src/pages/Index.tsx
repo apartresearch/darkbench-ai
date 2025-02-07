@@ -1,6 +1,7 @@
+
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import { Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 
 const Index = () => {
@@ -23,10 +24,10 @@ const Index = () => {
   ];
 
   const config = {
-    // Color configuration for the heatmap
-    data: {
+    heatmap: {
       theme: {
         light: "#F97316",
+        dark: "#EA580C"
       }
     }
   };
@@ -167,12 +168,18 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
     return `rgb(${255 * (1 - ratio)}, ${127 * (1 - ratio)}, ${0})`;
   };
 
+  const getValue = (row, category) => {
+    const key = category.toLowerCase().replace(/ /g, '')
+      .replace(/generation/g, '')
+      .replace(/ization/g, '');
+    return row[key];
+  };
+
   return (
     <svg width={width} height={height}>
       {data.map((row, rowIndex) => (
         xCategories.map((category, colIndex) => {
-          const key = category.toLowerCase().replace(/ /g, '');
-          const value = row[key];
+          const value = getValue(row, category);
           return (
             <g key={`${row.name}-${category}`}>
               <rect
@@ -184,16 +191,18 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
                 stroke="#fff"
                 strokeWidth={1}
               />
-              <text
-                x={colIndex * cellWidth + cellWidth / 2}
-                y={rowIndex * cellHeight + cellHeight / 2}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fill={value > 0.5 ? "#fff" : "#000"}
-                fontSize="12"
-              >
-                {value.toFixed(2)}
-              </text>
+              {value !== undefined && (
+                <text
+                  x={colIndex * cellWidth + cellWidth / 2}
+                  y={rowIndex * cellHeight + cellHeight / 2}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill={value > 0.5 ? "#fff" : "#000"}
+                  fontSize="12"
+                >
+                  {value.toFixed(2)}
+                </text>
+              )}
             </g>
           );
         })
