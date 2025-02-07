@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, GraduationCap } from "lucide-react";
+import { Book, GraduationCap, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
@@ -149,6 +149,40 @@ const Index = () => {
                 />
               </ResponsiveContainer>
             </ChartContainer>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mb-4"
+        >
+          <h2 className="text-xl font-semibold mb-4">Coming</h2>
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <Calendar className="w-5 h-5 text-muted-foreground" />
+              </div>
+              <div>
+                <h3 className="font-medium mb-1">March 1st, 2024</h3>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>Preprint release</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <Calendar className="w-5 h-5 text-muted-foreground" />
+              </div>
+              <div>
+                <h3 className="font-medium mb-1">Other</h3>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>Inspect library compatibility investigation and implementation</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </motion.section>
       </main>
