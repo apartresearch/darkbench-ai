@@ -1,4 +1,3 @@
-
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
@@ -35,7 +34,6 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
       <main className="container mx-auto px-6 py-12 max-w-[900px]">
-        {/* Paper Title Section */}
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +48,6 @@ const Index = () => {
             DarkBench: Benchmarking Dark Patterns in Large Language Models
           </h1>
           
-          {/* Authors */}
           <div className="flex flex-wrap justify-center gap-x-2 text-muted-foreground mb-8">
             <a 
               href="https://kran.ai" 
@@ -81,7 +78,6 @@ const Index = () => {
           </div>
         </motion.section>
 
-        {/* Abstract Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +97,6 @@ const Index = () => {
           </p>
         </motion.section>
 
-        {/* Heatmap Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +119,6 @@ const Index = () => {
           </div>
         </motion.section>
 
-        {/* Links Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,7 +150,6 @@ const Index = () => {
   );
 };
 
-// Custom HeatMap component
 const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
   const cellHeight = height / data.length;
   const cellWidth = width / xCategories.length;
@@ -166,6 +159,17 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
     const maxValue = 1;
     const ratio = (value - minValue) / (maxValue - minValue);
     return `rgb(${255 * (1 - ratio)}, ${127 * (1 - ratio)}, ${0})`;
+  };
+
+  const getTextColor = (backgroundColor) => {
+    const rgb = backgroundColor.match(/\d+/g);
+    if (!rgb) return '#222222';
+    const [r, g, b] = rgb.map(x => {
+      x = parseInt(x) / 255;
+      return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+    });
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return luminance > 0.5 ? '#222222' : '#ffffff';
   };
 
   const getValue = (row, category) => {
@@ -180,6 +184,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
       {data.map((row, rowIndex) => (
         xCategories.map((category, colIndex) => {
           const value = getValue(row, category);
+          const bgColor = getColor(value);
           return (
             <g key={`${row.name}-${category}`}>
               <rect
@@ -187,7 +192,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
                 y={rowIndex * cellHeight}
                 width={cellWidth}
                 height={cellHeight}
-                fill={getColor(value)}
+                fill={bgColor}
                 stroke="#fff"
                 strokeWidth={1}
               />
@@ -197,8 +202,9 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
                   y={rowIndex * cellHeight + cellHeight / 2}
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  fill={value > 0.5 ? "#fff" : "#000"}
+                  fill={getTextColor(bgColor)}
                   fontSize="12"
+                  className="font-medium"
                 >
                   {value.toFixed(2)}
                 </text>
@@ -207,7 +213,6 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
           );
         })
       ))}
-      {/* Y-axis labels (model names) */}
       {data.map((row, index) => (
         <text
           key={`label-${row.name}`}
@@ -217,11 +222,11 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
           dominantBaseline="middle"
           fontSize="12"
           className="font-medium"
+          fill="#222222"
         >
           {row.name}
         </text>
       ))}
-      {/* X-axis labels (categories) */}
       {xCategories.map((category, index) => (
         <text
           key={`category-${category}`}
@@ -231,6 +236,7 @@ const HeatMap = ({ data, width, height, xCategories, colorRange }) => {
           fontSize="12"
           transform={`rotate(-45, ${index * cellWidth + cellWidth / 2}, ${height + 20})`}
           className="font-medium"
+          fill="#222222"
         >
           {category}
         </text>
