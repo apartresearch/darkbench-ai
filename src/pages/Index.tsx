@@ -1,3 +1,4 @@
+
 import { Book, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
@@ -155,7 +156,7 @@ const HeatMap = ({ data, width, height, xCategories }) => {
   const effectiveWidth = width - padding.left - padding.right;
   const effectiveHeight = height - padding.top - padding.bottom;
   
-  const cellWidth = effectiveWidth / xCategories.length;
+  const cellWidth = effectiveWidth / 7; // Fixed number of columns
   const cellHeight = effectiveHeight / data.length;
 
   const normalizeKey = (key) => {
@@ -166,7 +167,11 @@ const HeatMap = ({ data, width, height, xCategories }) => {
   };
 
   const getColor = (value) => {
-    return `rgb(234, ${Math.round(88 + (166 * (1-value)))}, ${Math.round(12 + (223 * (1-value)))})`;
+    // Darker orange for higher values
+    const r = 234;
+    const g = Math.round(88 + (166 * (1-value)));
+    const b = Math.round(12 + (223 * (1-value)));
+    return `rgb(${r}, ${g}, ${b})`;
   };
 
   const getContrastColor = (value) => {
@@ -177,37 +182,38 @@ const HeatMap = ({ data, width, height, xCategories }) => {
     <svg width={width} height={height} className="font-inter">
       <g transform={`translate(${padding.left}, ${padding.top})`}>
         {data.map((row, rowIndex) => (
-          xCategories.map((category, colIndex) => {
-            const value = row[normalizeKey(category)];
-            if (value === undefined) return null;
-
-            return (
-              <g key={`${row.name}-${category}`}>
-                <rect
-                  x={colIndex * cellWidth}
-                  y={rowIndex * cellHeight}
-                  width={cellWidth - 4}
-                  height={cellHeight - 4}
-                  rx={4}
-                  fill={getColor(value)}
-                  className="transition-colors duration-200 cursor-pointer hover:opacity-80"
-                />
-                <text
-                  x={colIndex * cellWidth + (cellWidth / 2)}
-                  y={rowIndex * cellHeight + (cellHeight / 2)}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill={getContrastColor(value)}
-                  fontSize={12}
-                  className="font-medium select-none pointer-events-none"
-                >
-                  {value.toFixed(2)}
-                </text>
-              </g>
-            );
-          })
+          <g key={`row-${rowIndex}`}>
+            {["average", "anthropomorphization", "brandBias", "harmful", "sneaking", "sycophancy", "userRetention"].map((key, colIndex) => {
+              const value = row[key];
+              return (
+                <g key={`${row.name}-${key}`}>
+                  <rect
+                    x={colIndex * cellWidth}
+                    y={rowIndex * cellHeight}
+                    width={cellWidth - 4}
+                    height={cellHeight - 4}
+                    rx={4}
+                    fill={getColor(value)}
+                    className="transition-colors duration-200 cursor-pointer hover:opacity-80"
+                  />
+                  <text
+                    x={colIndex * cellWidth + (cellWidth / 2)}
+                    y={rowIndex * cellHeight + (cellHeight / 2)}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill={getContrastColor(value)}
+                    fontSize={12}
+                    className="font-medium select-none pointer-events-none"
+                  >
+                    {value.toFixed(2)}
+                  </text>
+                </g>
+              );
+            })}
+          </g>
         ))}
 
+        {/* Row labels (model names) */}
         {data.map((row, index) => (
           <text
             key={`label-${row.name}`}
@@ -222,7 +228,16 @@ const HeatMap = ({ data, width, height, xCategories }) => {
           </text>
         ))}
 
-        {xCategories.map((category, index) => (
+        {/* Column labels */}
+        {[
+          "Average",
+          "Anthropomorphization",
+          "Brand Bias",
+          "Harmful Generation",
+          "Sneaking",
+          "Sycophancy",
+          "User Retention"
+        ].map((category, index) => (
           <text
             key={`category-${category}`}
             x={index * cellWidth + (cellWidth / 2)}
