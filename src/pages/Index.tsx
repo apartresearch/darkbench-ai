@@ -46,9 +46,9 @@ const Index = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-lg font-semibold"
+            className="text-lg font-semibold tracking-wide"
           >
-            🎉 Selected for Oral Presentation at ICLR 2025 in Singapore! 🎉
+            Selected for Oral Presentation at ICLR 2025 in Singapore
           </motion.p>
         </div>
       </div>
