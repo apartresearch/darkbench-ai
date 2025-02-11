@@ -40,6 +40,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
+      <div className="w-full bg-[#F97316] text-white py-3 px-4">
+        <div className="container mx-auto text-center">
+          <motion.p 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg font-semibold"
+          >
+            🎉 Selected for Oral Presentation at ICLR 2025 in Singapore! 🎉
+          </motion.p>
+        </div>
+      </div>
+      
       <main className="container mx-auto px-6 py-8 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -325,3 +338,4 @@ const HeatMap = ({ data, width, height, xCategories, onTooltipChange }) => {
 };
 
 export default Index;
+
