@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Book, GraduationCap, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
@@ -139,7 +138,7 @@ const Index = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="text-sm font-medium">ASEAI</span>
+              <span className="text-sm font-medium">IASEAI</span>
             </a>
           </div>
         </motion.section>
@@ -338,4 +337,3 @@ const HeatMap = ({ data, width, height, xCategories, onTooltipChange }) => {
 };
 
 export default Index;
-
