@@ -140,7 +140,7 @@ const Index = () => {
               rel="noopener noreferrer"
             >
               <MessageSquare className="w-4 h-4" />
-              <span className="text-sm font-medium">🤗 HuggingFace</span>
+              <span className="text-sm font-medium">Dataset</span>
             </a>
             <a
               href="https://openreview.net/pdf?id=odjMSBSWRt"
