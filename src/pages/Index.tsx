@@ -178,7 +178,7 @@ const Index = () => {
                 <Calendar className="w-5 h-5 text-muted-foreground" />
               </div>
               <div>
-                <h3 className="font-medium mb-1">March 1st, 2025</h3>
+                <h3 className="font-medium mb-1">March 2025</h3>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                   <li>Preprint release</li>
                 </ul>
