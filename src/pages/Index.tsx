@@ -1,37 +1,37 @@
 import React from "react";
-import { Book, GraduationCap, Calendar, Code } from "lucide-react";
+import { Book, GraduationCap, Calendar, Code, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 
-const Index = () => {
-  const data = [
-    { name: "Claude 3 Haiku", average: 0.36, anthropomorphization: 0.16, brandBias: 0.10, harmful: 0.22, sneaking: 0.85, sycophancy: 0.04, userRetention: 0.77 },
-    { name: "Claude 3 Sonnet", average: 0.32, anthropomorphization: 0.08, brandBias: 0.21, harmful: 0.23, sneaking: 0.81, sycophancy: 0.03, userRetention: 0.54 },
-    { name: "Claude 3 Opus", average: 0.33, anthropomorphization: 0.14, brandBias: 0.21, harmful: 0.15, sneaking: 0.66, sycophancy: 0.01, userRetention: 0.84 },
-    { name: "Claude 3.5 Sonnet", average: 0.30, anthropomorphization: 0.01, brandBias: 0.22, harmful: 0.32, sneaking: 0.84, sycophancy: 0.03, userRetention: 0.41 },
-    { name: "Gemini 1.0 Pro", average: 0.56, anthropomorphization: 0.64, brandBias: 0.25, harmful: 0.62, sneaking: 0.91, sycophancy: 0.16, userRetention: 0.78 },
-    { name: "Gemini 1.5 Flash", average: 0.53, anthropomorphization: 0.43, brandBias: 0.41, harmful: 0.38, sneaking: 0.94, sycophancy: 0.14, userRetention: 0.91 },
-    { name: "Gemini 1.5 Pro", average: 0.48, anthropomorphization: 0.34, brandBias: 0.31, harmful: 0.37, sneaking: 0.94, sycophancy: 0.07, userRetention: 0.83 },
-    { name: "GPT-3.5 Turbo", average: 0.61, anthropomorphization: 0.66, brandBias: 0.31, harmful: 0.85, sneaking: 0.62, sycophancy: 0.26, userRetention: 0.95 },
-    { name: "GPT-4", average: 0.49, anthropomorphization: 0.13, brandBias: 0.64, harmful: 0.71, sneaking: 0.72, sycophancy: 0.09, userRetention: 0.65 },
-    { name: "GPT-4 Turbo", average: 0.48, anthropomorphization: 0.18, brandBias: 0.49, harmful: 0.69, sneaking: 0.69, sycophancy: 0.10, userRetention: 0.75 },
-    { name: "GPT-4o", average: 0.55, anthropomorphization: 0.33, brandBias: 0.63, harmful: 0.80, sneaking: 0.52, sycophancy: 0.16, userRetention: 0.84 },
-    { name: "Llama 3 70B", average: 0.61, anthropomorphization: 0.60, brandBias: 0.26, harmful: 0.68, sneaking: 0.90, sycophancy: 0.24, userRetention: 0.97 },
-    { name: "Mistral 7B", average: 0.59, anthropomorphization: 0.50, brandBias: 0.01, harmful: 0.86, sneaking: 0.90, sycophancy: 0.32, userRetention: 0.93 },
-    { name: "Mixtral 8x7B", average: 0.56, anthropomorphization: 0.76, brandBias: 0.08, harmful: 0.85, sneaking: 0.77, sycophancy: 0.23, userRetention: 0.65 },
-    { name: "Average", average: 0.48, anthropomorphization: 0.35, brandBias: 0.29, harmful: 0.55, sneaking: 0.79, sycophancy: 0.13, userRetention: 0.77 }
-  ];
+const data = [
+  { name: "Claude 3 Haiku", average: 0.36, anthropomorphization: 0.16, brandBias: 0.10, harmful: 0.22, sneaking: 0.85, sycophancy: 0.04, userRetention: 0.77 },
+  { name: "Claude 3 Sonnet", average: 0.32, anthropomorphization: 0.08, brandBias: 0.21, harmful: 0.23, sneaking: 0.81, sycophancy: 0.03, userRetention: 0.54 },
+  { name: "Claude 3 Opus", average: 0.33, anthropomorphization: 0.14, brandBias: 0.21, harmful: 0.15, sneaking: 0.66, sycophancy: 0.01, userRetention: 0.84 },
+  { name: "Claude 3.5 Sonnet", average: 0.30, anthropomorphization: 0.01, brandBias: 0.22, harmful: 0.32, sneaking: 0.84, sycophancy: 0.03, userRetention: 0.41 },
+  { name: "Gemini 1.0 Pro", average: 0.56, anthropomorphization: 0.64, brandBias: 0.25, harmful: 0.62, sneaking: 0.91, sycophancy: 0.16, userRetention: 0.78 },
+  { name: "Gemini 1.5 Flash", average: 0.53, anthropomorphization: 0.43, brandBias: 0.41, harmful: 0.38, sneaking: 0.94, sycophancy: 0.14, userRetention: 0.91 },
+  { name: "Gemini 1.5 Pro", average: 0.48, anthropomorphization: 0.34, brandBias: 0.31, harmful: 0.37, sneaking: 0.94, sycophancy: 0.07, userRetention: 0.83 },
+  { name: "GPT-3.5 Turbo", average: 0.61, anthropomorphization: 0.66, brandBias: 0.31, harmful: 0.85, sneaking: 0.62, sycophancy: 0.26, userRetention: 0.95 },
+  { name: "GPT-4", average: 0.49, anthropomorphization: 0.13, brandBias: 0.64, harmful: 0.71, sneaking: 0.72, sycophancy: 0.09, userRetention: 0.65 },
+  { name: "GPT-4 Turbo", average: 0.48, anthropomorphization: 0.18, brandBias: 0.49, harmful: 0.69, sneaking: 0.69, sycophancy: 0.10, userRetention: 0.75 },
+  { name: "GPT-4o", average: 0.55, anthropomorphization: 0.33, brandBias: 0.63, harmful: 0.80, sneaking: 0.52, sycophancy: 0.16, userRetention: 0.84 },
+  { name: "Llama 3 70B", average: 0.61, anthropomorphization: 0.60, brandBias: 0.26, harmful: 0.68, sneaking: 0.90, sycophancy: 0.24, userRetention: 0.97 },
+  { name: "Mistral 7B", average: 0.59, anthropomorphization: 0.50, brandBias: 0.01, harmful: 0.86, sneaking: 0.90, sycophancy: 0.32, userRetention: 0.93 },
+  { name: "Mixtral 8x7B", average: 0.56, anthropomorphization: 0.76, brandBias: 0.08, harmful: 0.85, sneaking: 0.77, sycophancy: 0.23, userRetention: 0.65 },
+  { name: "Average", average: 0.48, anthropomorphization: 0.35, brandBias: 0.29, harmful: 0.55, sneaking: 0.79, sycophancy: 0.13, userRetention: 0.77 }
+];
 
-  const config = {
-    heatmap: {
-      theme: {
-        light: "#F97316",
-        dark: "#EA580C"
-      }
+const config = {
+  heatmap: {
+    theme: {
+      light: "#F97316",
+      dark: "#EA580C"
     }
-  };
+  }
+};
 
+const Index = () => {
   const [tooltipData, setTooltipData] = React.useState<{
     category: string;
     visible: boolean;
@@ -132,6 +132,15 @@ const Index = () => {
             >
               <Code className="w-4 h-4" />
               <span className="text-sm font-medium">Code</span>
+            </a>
+            <a
+              href="https://huggingface.co/datasets/apart/darkbench"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span className="text-sm font-medium">🤗 HuggingFace</span>
             </a>
             <a
               href="https://openreview.net/pdf?id=odjMSBSWRt"
