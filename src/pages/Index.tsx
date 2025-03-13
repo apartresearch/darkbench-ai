@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, GraduationCap, Calendar } from "lucide-react";
+import { Book, GraduationCap, Calendar, Code } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
@@ -124,6 +124,15 @@ const Index = () => {
         >
           <h2 className="text-xl font-semibold mb-4">Links</h2>
           <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://github.com/apartresearch/darkbench"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Code className="w-4 h-4" />
+              <span className="text-sm font-medium">Code</span>
+            </a>
             <a
               href="https://openreview.net/pdf?id=odjMSBSWRt"
               className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
