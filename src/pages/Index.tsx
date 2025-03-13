@@ -222,9 +222,9 @@ const Index = () => {
               <div>
                 <h3 className="font-medium mb-1">Other</h3>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Inspect library implementation</li>
+                  <li><s>Inspect library implementation</s></li>
                   <li>Newer model test scores</li>
-                  <li>Reproducible open code</li>
+                  <li><s>Reproducible open code</s></li>
                 </ul>
               </div>
             </div>
