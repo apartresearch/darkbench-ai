@@ -24,7 +24,7 @@ const PosterDialog: React.FC<PosterDialogProps> = ({ imageUrl }) => {
           <span className="text-sm font-medium">Poster</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-6xl">
         <DialogHeader>
           <DialogTitle>DarkBench Poster</DialogTitle>
           <DialogDescription>

@@ -38,7 +38,7 @@ const Index = () => {
     visible: boolean;
   } | null>(null);
 
-  const posterImageUrl = "https://via.placeholder.com/800x1200?text=DarkBench+Poster";
+  const posterImageUrl = "/lovable-uploads/d1720f6d-9ece-4906-a16f-5454970c5769.png";
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
