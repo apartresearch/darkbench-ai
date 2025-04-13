@@ -3,6 +3,7 @@ import { Book, GraduationCap, Calendar, Code, MessageSquare } from "lucide-react
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
+import PosterDialog from "@/components/PosterDialog";
 
 const data = [
   { name: "Claude 3 Haiku", average: 0.36, anthropomorphization: 0.16, brandBias: 0.10, harmful: 0.22, sneaking: 0.85, sycophancy: 0.04, userRetention: 0.77 },
@@ -36,6 +37,8 @@ const Index = () => {
     category: string;
     visible: boolean;
   } | null>(null);
+
+  const posterImageUrl = "https://via.placeholder.com/800x1200?text=DarkBench+Poster";
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
@@ -158,6 +161,7 @@ const Index = () => {
             >
               <span className="text-sm font-medium">IASEAI</span>
             </a>
+            <PosterDialog imageUrl={posterImageUrl} />
           </div>
         </motion.section>
 
