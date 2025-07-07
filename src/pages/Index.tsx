@@ -42,19 +42,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
-      <div className="w-full bg-[#F97316] text-white py-3 px-4">
-        <div className="container mx-auto text-center">
-          <motion.p 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-lg font-semibold tracking-wide"
-          >
-            Selected for Oral Presentation at ICLR 2025 in Singapore
-          </motion.p>
-        </div>
-      </div>
-      
       <main className="container mx-auto px-6 py-8 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -72,10 +59,10 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">AUTHORS</h3>
-              <div className="space-y-1">
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">AUTHORS</h3>
+              <div className="space-y-1 text-sm">
                 <div><a 
                   href="https://kran.ai" 
                   target="_blank" 
@@ -93,22 +80,34 @@ const Index = () => {
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">AFFILIATIONS</h3>
-              <div>
-                <a 
-                  href="https://apartresearch.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Apart Research
-                </a>
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">AFFILIATIONS</h3>
+              <div className="space-y-1 text-sm">
+                <div>
+                  <a 
+                    href="https://apartresearch.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Apart Research
+                  </a>
+                </div>
+                <div>Apart Research</div>
+                <div>Apart Research</div>
+                <div>Apart Research</div>
+                <div>Apart Research</div>
+                <div>Apart Research</div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">PUBLISHED</h3>
-              <div>Oral Spotlight ICLR 2025</div>
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">PUBLISHED</h3>
+              <div className="text-sm">Oral spotlight award ICLR 2025</div>
+            </div>
+            
+            <div>
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">DOI</h3>
+              <div className="text-sm text-muted-foreground">Coming soon</div>
             </div>
           </div>
         </motion.section>
