@@ -37,16 +37,16 @@ const mediaItems: MediaItem[] = [
   },
   {
     id: "5",
-    src: "/lovable-uploads/3f111dce-e694-42d5-a95c-37e44a26744b.png", 
+    src: "/lovable-uploads/78d14649-247d-4937-98a1-72fff223df45.png", 
     alt: "VentureBeat feature: Beyond sycophancy: DarkBench exposes six hidden 'dark patterns' lurking in today's top LLMs",
-    thumbnail: "/lovable-uploads/3f111dce-e694-42d5-a95c-37e44a26744b.png",
+    thumbnail: "/lovable-uploads/78d14649-247d-4937-98a1-72fff223df45.png",
     link: "https://venturebeat.com/ai/darkness-rising-the-hidden-dangers-of-ai-sycophancy-and-dark-patterns/"
   },
   {
     id: "6",
-    src: "/lovable-uploads/3ba1d0fa-70f1-4a8e-916d-29b4f412d077.png", 
+    src: "/lovable-uploads/f0c8ad37-b8cd-46d5-93d7-2c38fd4099a7.png", 
     alt: "Information feature: Vores tankefrihed er under angreb fra chatbotternes subtile manipulation",
-    thumbnail: "/lovable-uploads/3ba1d0fa-70f1-4a8e-916d-29b4f412d077.png",
+    thumbnail: "/lovable-uploads/f0c8ad37-b8cd-46d5-93d7-2c38fd4099a7.png",
     link: "https://www.information.dk/debat/2025/05/vores-tankefrihed-angreb-chatbotternes-subtile-manipulation"
   }
 ];
