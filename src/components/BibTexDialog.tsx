@@ -32,7 +32,7 @@ const BibTexDialog: React.FC<BibTexDialogProps> = ({ doi }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="text-sm hover:text-foreground transition-colors cursor-pointer">
+        <button className="text-sm hover:text-foreground transition-colors cursor-pointer break-all text-left">
           {doi}
         </button>
       </DialogTrigger>
