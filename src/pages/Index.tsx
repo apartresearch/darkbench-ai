@@ -64,37 +64,18 @@ const Index = () => {
         >
           <div className="mb-8">
             <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-10 h-10 mb-4" />
-            <h1 className="text-3xl md:text-4xl font-normal leading-tight mb-2">
+            <h1 className="text-4xl md:text-5xl font-normal leading-tight mb-2">
               DarkBench: Benchmarking Dark Patterns in Large Language Models
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
               A comprehensive benchmark for detecting manipulative techniques in LLM interactions.
             </p>
-            <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-8">
-              <a 
-                href="https://apartresearch.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                APARTRESEARCH
-              </a>
-              {" / "}
-              <a 
-                href="https://iclr.cc/virtual/2025/oral/31771" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                ICLR2025
-              </a>
-            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">AUTHORS</h3>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <div><a 
                   href="https://kran.ai" 
                   target="_blank" 
@@ -127,7 +108,7 @@ const Index = () => {
             
             <div>
               <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">PUBLISHED</h3>
-              <div>April 24-26, 2025</div>
+              <div>Oral Spotlight ICLR 2025</div>
             </div>
           </div>
         </motion.section>
