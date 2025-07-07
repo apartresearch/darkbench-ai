@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, GraduationCap, Calendar, Code, MessageSquare } from "lucide-react";
+import { Sword, GraduationCap, Calendar, Code, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
@@ -63,8 +63,26 @@ const Index = () => {
           className="mb-4 text-center"
         >
           <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
-            <Book className="w-4 h-4" />
-            <span>Research Paper</span>
+            <Sword className="w-4 h-4" />
+            <span>
+              <a 
+                href="https://apartresearch.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                apartresearch
+              </a>
+              {" / "}
+              <a 
+                href="https://iclr.cc/virtual/2025/oral/31771" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                darkbench
+              </a>
+            </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
             DarkBench: Benchmarking Dark Patterns in Large Language Models
