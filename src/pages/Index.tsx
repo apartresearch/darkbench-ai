@@ -135,11 +135,11 @@ const Index = () => {
                   href="https://iclr.cc/virtual/2025/oral/31771" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors cursor-pointer"
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
-                  <span className="text-muted-foreground">April 24-26, 2025</span><br />
-                  <span className="text-muted-foreground">Oral spotlight award</span><br />
-                  <span className="text-muted-foreground">ICLR 2025</span>
+                  April 24-26, 2025<br />
+                  Oral spotlight award<br />
+                  ICLR 2025
                 </a>
               </div>
             </div>
