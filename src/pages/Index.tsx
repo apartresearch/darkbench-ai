@@ -63,7 +63,7 @@ const Index = () => {
           className="mb-4 text-center"
         >
           <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
-            <Sword className="w-4 h-4" />
+            <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-4 h-4" />
             <span>
               <a 
                 href="https://apartresearch.com" 
