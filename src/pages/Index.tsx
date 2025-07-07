@@ -172,13 +172,19 @@ const Index = () => {
           <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-3">NEWS</h3>
           <div className="space-y-2 text-sm">
             <div>
-              <span className="text-muted-foreground">[04/2025]</span> DarkBench wins oral spotlight award at ICLR 2025
+              <span className="text-muted-foreground">[05/2025]</span> <a href="https://venturebeat.com/ai/beyond-sycophancy-darkbench-exposes-six-hidden-dark-patterns-lurking-in-todays-top-llms/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Featured in VentureBeat: "Beyond sycophancy: DarkBench exposes six hidden 'dark patterns' lurking in today's top LLMs"</a>
             </div>
             <div>
-              <span className="text-muted-foreground">[03/2025]</span> Featured in VentureBeat: "Beyond sycophancy: DarkBench exposes six hidden 'dark patterns' lurking in today's top LLMs"
+              <span className="text-muted-foreground">[04/2025]</span> The Dark Patterns in AGI Hackathon brings together researchers to uncover manipulation techniques in AI
             </div>
             <div>
-              <span className="text-muted-foreground">[02/2025]</span> Presented at OECD AISEAI Paris AI Action Summit
+              <span className="text-muted-foreground">[03/2025]</span> <a href="https://www.youtube.com/watch?v=KTH1RBeO3ik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">1:30h podcast about dark patterns with For Humanity podcast</a>
+            </div>
+            <div>
+              <span className="text-muted-foreground">[02/2025]</span> DarkBench wins oral spotlight award at ICLR 2025
+            </div>
+            <div>
+              <span className="text-muted-foreground">[02/2025]</span> <a href="https://www.iaseai.org/conference/people/esben-kran" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Presented at IASEAI Paris AI Action Summit</a>
             </div>
             <div>
               <span className="text-muted-foreground">[01/2025]</span> Paper accepted to ICLR 2025
