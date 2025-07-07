@@ -63,11 +63,14 @@ const Index = () => {
           className="mb-4 text-left"
         >
           <div className="mb-8">
-            <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-12 h-12 mb-6" />
-            <h1 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
+            <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-10 h-10 mb-4" />
+            <h1 className="text-3xl md:text-4xl font-normal leading-tight mb-2">
               DarkBench: Benchmarking Dark Patterns in Large Language Models
             </h1>
-            <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
+            <p className="text-lg text-muted-foreground mb-6">
+              A comprehensive benchmark for detecting manipulative techniques in LLM interactions.
+            </p>
+            <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-8">
               <a 
                 href="https://apartresearch.com" 
                 target="_blank" 
@@ -88,33 +91,44 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="flex flex-wrap gap-x-2 text-muted-foreground mb-8">
-            <span><a 
-              href="https://kran.ai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
-              style={{ padding: 0, margin: 0 }}
-            >
-              Esben Kran*
-            </a>,</span>
-            <span>Jord Nguyen*,</span>
-            <span>Akash Kundu*,</span>
-            <span>Sami Jawhar*,</span>
-            <span>Jinsuk Park*,</span>
-            <span>Mateusz Maria Jurewicz</span>
-          </div>
-          
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <GraduationCap className="w-4 h-4" />
-            <a 
-              href="https://apartresearch.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
-            >
-              Apart Research
-            </a>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">AUTHORS</h3>
+              <div className="space-y-2">
+                <div><a 
+                  href="https://kran.ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Esben Kran*
+                </a></div>
+                <div>Jord Nguyen*</div>
+                <div>Akash Kundu*</div>
+                <div>Sami Jawhar*</div>
+                <div>Jinsuk Park*</div>
+                <div>Mateusz Maria Jurewicz</div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">AFFILIATIONS</h3>
+              <div>
+                <a 
+                  href="https://apartresearch.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Apart Research
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">PUBLISHED</h3>
+              <div>April 24-26, 2025</div>
+            </div>
           </div>
         </motion.section>
 
