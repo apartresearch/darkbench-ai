@@ -88,7 +88,7 @@ const Index = () => {
                     href="https://apartresearch.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground md:text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Apart Research
                   </a>
@@ -98,7 +98,7 @@ const Index = () => {
                     href="https://apartresearch.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground md:text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Apart Research
                   </a>
@@ -108,7 +108,7 @@ const Index = () => {
                     href="https://apartresearch.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground md:text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Apart Research
                   </a>
@@ -118,13 +118,13 @@ const Index = () => {
                     href="https://metr.org/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground md:text-muted-foreground hover:text-foreground transition-colors"
                   >
                     METR
                   </a>
                 </div>
-                <div className="text-muted-foreground">Independent</div>
-                <div className="text-muted-foreground">Independent</div>
+                <div className="text-foreground md:text-muted-foreground">Independent</div>
+                <div className="text-foreground md:text-muted-foreground">Independent</div>
               </div>
             </div>
             
@@ -135,7 +135,7 @@ const Index = () => {
                   href="https://iclr.cc/virtual/2025/oral/31771" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="text-foreground md:text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   April 24-26, 2025<br />
                   Oral spotlight award<br />
@@ -146,7 +146,7 @@ const Index = () => {
             
             <div>
               <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">DOI</h3>
-              <div className="text-sm text-muted-foreground break-words">
+              <div className="text-sm text-foreground md:text-muted-foreground break-words">
                 <BibTexDialog doi="doi.org/10.48550/arXiv.2503.10728" />
               </div>
             </div>
