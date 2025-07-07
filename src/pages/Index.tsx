@@ -103,7 +103,18 @@ const Index = () => {
             
             <div>
               <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">PUBLISHED</h3>
-              <div className="text-sm">Oral spotlight award ICLR 2025</div>
+              <div className="text-sm">
+                <a 
+                  href="https://iclr.cc/virtual/2025/oral/31771" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors cursor-pointer"
+                >
+                  April 24-26, 2025<br />
+                  Oral spotlight award<br />
+                  ICLR 2025
+                </a>
+              </div>
             </div>
             
             <div>
