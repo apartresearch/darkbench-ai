@@ -71,7 +71,7 @@ const MediaGallery = () => {
               <img
                 src={item.thumbnail}
                 alt={item.alt}
-                className="w-16 h-16 object-cover group-hover:scale-105 transition-transform duration-200"
+                className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </motion.a>
           ) : (
