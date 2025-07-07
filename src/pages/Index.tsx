@@ -178,7 +178,7 @@ const Index = () => {
               <span className="text-muted-foreground">[04/2025]</span> The Dark Patterns in AGI Hackathon brings together researchers to uncover manipulation techniques in AI
             </div>
             <div>
-              <span className="text-muted-foreground">[03/2025]</span> <a href="https://www.youtube.com/watch?v=KTH1RBeO3ik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">1:30h podcast about dark patterns with For Humanity podcast</a>
+              <span className="text-muted-foreground">[03/2025]</span> <a href="https://www.youtube.com/watch?v=KTH1RBeO3ik" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Featured on For Humanity podcast discussing dark patterns in AI systems</a>
             </div>
             <div>
               <span className="text-muted-foreground">[02/2025]</span> DarkBench wins oral spotlight award at ICLR 2025
