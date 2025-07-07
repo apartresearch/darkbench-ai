@@ -64,14 +64,14 @@ const Index = () => {
         >
           <div className="mb-6">
             <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-8 h-8 mb-2" />
-            <div className="text-sm font-medium text-muted-foreground">
+            <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
               <a 
                 href="https://apartresearch.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
-                apartresearch
+                APARTRESEARCH
               </a>
               {" / "}
               <a 
@@ -80,7 +80,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
-                darkbench
+                DARKBENCH
               </a>
             </div>
           </div>
