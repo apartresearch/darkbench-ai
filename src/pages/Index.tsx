@@ -95,9 +95,9 @@ const Index = () => {
                 </div>
                 <div>Apart Research</div>
                 <div>Apart Research</div>
-                <div>Apart Research</div>
-                <div>Apart Research</div>
-                <div>Apart Research</div>
+                <div>METR</div>
+                <div>Independent</div>
+                <div>Independent</div>
               </div>
             </div>
             
