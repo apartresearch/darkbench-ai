@@ -52,7 +52,7 @@ const Index = () => {
         >
           <div className="mb-8">
             <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-10 h-10 mb-4" />
-            <h1 className="text-4xl md:text-5xl font-normal leading-tight mb-2">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-2">
               DarkBench: Benchmarking Dark Patterns in Large Language Models
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
@@ -146,7 +146,7 @@ const Index = () => {
             
             <div>
               <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">DOI</h3>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm text-muted-foreground break-words">
                 <BibTexDialog doi="doi.org/10.48550/arXiv.2503.10728" />
               </div>
             </div>
