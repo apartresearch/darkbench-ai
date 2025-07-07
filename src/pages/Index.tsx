@@ -62,8 +62,11 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="mb-4 text-left"
         >
-          <div className="mb-6">
-            <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-8 h-8 mb-2" />
+          <div className="mb-8">
+            <img src="/lovable-uploads/0ac68f95-41ff-46a7-a7fa-a86341b994b9.png" alt="Apart Research logo" className="w-12 h-12 mb-6" />
+            <h1 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
+              DarkBench: Benchmarking Dark Patterns in Large Language Models
+            </h1>
             <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
               <a 
                 href="https://apartresearch.com" 
@@ -80,13 +83,10 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
-                DARKBENCH
+                ICLR2025
               </a>
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
-            DarkBench: Benchmarking Dark Patterns in Large Language Models
-          </h1>
           
           <div className="flex flex-wrap gap-x-2 text-muted-foreground mb-8">
             <span><a 
