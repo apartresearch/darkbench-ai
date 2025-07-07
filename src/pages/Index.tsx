@@ -169,18 +169,20 @@ const Index = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-4"
         >
-          <div className="w-full overflow-x-auto relative">
-            <ChartContainer config={config} className="min-w-[800px]">
-              <ResponsiveContainer width="100%" height={600}>
-                <HeatMap
-                  data={data}
-                  width={800}
-                  height={600}
-                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
-                  onTooltipChange={setTooltipData}
-                />
-              </ResponsiveContainer>
-            </ChartContainer>
+          <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-3">NEWS</h3>
+          <div className="space-y-2 text-sm">
+            <div>
+              <span className="text-muted-foreground">[04/2025]</span> DarkBench wins oral spotlight award at ICLR 2025
+            </div>
+            <div>
+              <span className="text-muted-foreground">[03/2025]</span> Featured in VentureBeat: "Beyond sycophancy: DarkBench exposes six hidden 'dark patterns' lurking in today's top LLMs"
+            </div>
+            <div>
+              <span className="text-muted-foreground">[02/2025]</span> Presented at OECD AISEAI Paris AI Action Summit
+            </div>
+            <div>
+              <span className="text-muted-foreground">[01/2025]</span> Paper accepted to ICLR 2025
+            </div>
           </div>
         </motion.section>
 
@@ -207,6 +209,27 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
+          className="mb-4"
+        >
+          <div className="w-full overflow-x-auto relative">
+            <ChartContainer config={config} className="min-w-[800px]">
+              <ResponsiveContainer width="100%" height={600}>
+                <HeatMap
+                  data={data}
+                  width={800}
+                  height={600}
+                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
+                  onTooltipChange={setTooltipData}
+                />
+              </ResponsiveContainer>
+            </ChartContainer>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
           className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Links</h2>
