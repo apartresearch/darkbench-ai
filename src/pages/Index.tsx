@@ -169,7 +169,28 @@ const Index = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-4"
         >
-          <h2 className="text-xl font-semibold mb-4">Abstract</h2>
+          <div className="w-full overflow-x-auto relative">
+            <ChartContainer config={config} className="min-w-[800px]">
+              <ResponsiveContainer width="100%" height={600}>
+                <HeatMap
+                  data={data}
+                  width={800}
+                  height={600}
+                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
+                  onTooltipChange={setTooltipData}
+                />
+              </ResponsiveContainer>
+            </ChartContainer>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mb-4"
+        >
+          <h2 className="text-xl font-semibold mb-4">Overview</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
             We introduce DarkBench, a comprehensive benchmark for detecting dark design patterns—manipulative 
             techniques that influence user behavior—in interactions with large language models (LLMs). Our 
@@ -209,14 +230,6 @@ const Index = () => {
               <span className="text-sm font-medium">Dataset</span>
             </a>
             <a
-              href="https://openreview.net/pdf?id=odjMSBSWRt"
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="text-sm font-medium">Coming to ICLR</span>
-            </a>
-            <a
               href="https://www.iaseai.org/conference/people/esben-kran"
               className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
               target="_blank"
@@ -225,28 +238,6 @@ const Index = () => {
               <span className="text-sm font-medium">IASEAI</span>
             </a>
             <PosterDialog imageUrl={posterImageUrl} />
-          </div>
-        </motion.section>
-
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-4"
-        >
-          <h2 className="text-xl font-semibold mb-4">Results</h2>
-          <div className="w-full overflow-x-auto relative">
-            <ChartContainer config={config} className="min-w-[800px]">
-              <ResponsiveContainer width="100%" height={600}>
-                <HeatMap
-                  data={data}
-                  width={800}
-                  height={600}
-                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
-                  onTooltipChange={setTooltipData}
-                />
-              </ResponsiveContainer>
-            </ChartContainer>
           </div>
         </motion.section>
       </main>
