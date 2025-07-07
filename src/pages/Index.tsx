@@ -88,16 +88,43 @@ const Index = () => {
                     href="https://apartresearch.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Apart Research
                   </a>
                 </div>
-                <div>Apart Research</div>
-                <div>Apart Research</div>
-                <div>METR</div>
-                <div>Independent</div>
-                <div>Independent</div>
+                <div>
+                  <a 
+                    href="https://apartresearch.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Apart Research
+                  </a>
+                </div>
+                <div>
+                  <a 
+                    href="https://apartresearch.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Apart Research
+                  </a>
+                </div>
+                <div>
+                  <a 
+                    href="https://metr.org/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    METR
+                  </a>
+                </div>
+                <div className="text-muted-foreground">Independent</div>
+                <div className="text-muted-foreground">Independent</div>
               </div>
             </div>
             
@@ -110,7 +137,7 @@ const Index = () => {
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors cursor-pointer"
                 >
-                  April 24-26, 2025<br />
+                  <span className="text-muted-foreground">April 24-26, 2025</span><br />
                   <span className="text-muted-foreground">Oral spotlight award</span><br />
                   <span className="text-muted-foreground">ICLR 2025</span>
                 </a>
