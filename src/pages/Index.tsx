@@ -111,8 +111,8 @@ const Index = () => {
                   className="hover:text-foreground transition-colors cursor-pointer"
                 >
                   April 24-26, 2025<br />
-                  Oral spotlight award<br />
-                  ICLR 2025
+                  <span className="text-muted-foreground">Oral spotlight award</span><br />
+                  <span className="text-muted-foreground">ICLR 2025</span>
                 </a>
               </div>
             </div>
