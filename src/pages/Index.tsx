@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import PosterDialog from "@/components/PosterDialog";
+import MediaGallery from "@/components/MediaGallery";
 import BibTexDialog from "@/components/BibTexDialog";
 
 const data = [
@@ -156,7 +157,16 @@ const Index = () => {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-4"
+        >
+          <MediaGallery />
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Abstract</h2>
@@ -175,7 +185,7 @@ const Index = () => {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Links</h2>
@@ -221,7 +231,7 @@ const Index = () => {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="mb-4"
         >
           <h2 className="text-xl font-semibold mb-4">Results</h2>
@@ -237,54 +247,6 @@ const Index = () => {
                 />
               </ResponsiveContainer>
             </ChartContainer>
-          </div>
-        </motion.section>
-
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-4"
-        >
-          <h2 className="text-xl font-semibold mb-4">Coming</h2>
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <Calendar className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <div>
-                <h3 className="font-medium mb-1">March 2025</h3>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Preprint release</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <Calendar className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <div>
-                <h3 className="font-medium mb-1">April 24-26, 2025</h3>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>ICLR Presentation (Singapore)</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <Calendar className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <div>
-                <h3 className="font-medium mb-1">Other</h3>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li><s>Inspect library implementation</s></li>
-                  <li>Newer model test scores</li>
-                  <li><s>Reproducible open code</s></li>
-                </ul>
-              </div>
-            </div>
           </div>
         </motion.section>
       </main>
