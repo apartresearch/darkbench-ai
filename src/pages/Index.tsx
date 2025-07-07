@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import PosterDialog from "@/components/PosterDialog";
+import BibTexDialog from "@/components/BibTexDialog";
 
 const data = [
   { name: "Claude 3 Haiku", average: 0.36, anthropomorphization: 0.16, brandBias: 0.10, harmful: 0.22, sneaking: 0.85, sycophancy: 0.04, userRetention: 0.77 },
@@ -42,7 +43,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
-      <main className="container mx-auto px-6 py-8 max-w-[900px]">
+      <main className="container mx-auto px-6 py-12 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +55,7 @@ const Index = () => {
             <h1 className="text-4xl md:text-5xl font-normal leading-tight mb-2">
               DarkBench: Benchmarking Dark Patterns in Large Language Models
             </h1>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-xl text-muted-foreground mb-8">
               A comprehensive benchmark for detecting manipulative techniques in LLM interactions.
             </p>
           </div>
@@ -107,7 +108,9 @@ const Index = () => {
             
             <div>
               <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">DOI</h3>
-              <div className="text-sm text-muted-foreground">Coming soon</div>
+              <div className="text-sm text-muted-foreground">
+                <BibTexDialog doi="doi.org/10.48550/arXiv.2503.10728" />
+              </div>
             </div>
           </div>
         </motion.section>
