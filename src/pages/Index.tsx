@@ -67,22 +67,6 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="flex items-center justify-end mb-4">
-              <button
-                onClick={() => {
-                  // Download the pre-rendered heatmap image
-                  const link = document.createElement('a');
-                  link.download = 'darkbench-heatmap.png';
-                  link.href = '/lovable-uploads/b5f1597d-78ff-4e60-b3d1-5fd6bc8b5c7d.png';
-                  link.click();
-                }}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors text-sm"
-                title="Download as image"
-              >
-                <Image className="w-4 h-4" />
-                <span>Save Image</span>
-              </button>
-            </div>
             <div className="w-full overflow-x-auto relative">
               <ChartContainer config={config} className="min-w-[800px]">
                 <ResponsiveContainer width="100%" height={600}>
@@ -95,6 +79,20 @@ const Index = () => {
                   />
                 </ResponsiveContainer>
               </ChartContainer>
+              <button
+                onClick={() => {
+                  // Download the pre-rendered heatmap image
+                  const link = document.createElement('a');
+                  link.download = 'darkbench-heatmap.png';
+                  link.href = '/lovable-uploads/b5f1597d-78ff-4e60-b3d1-5fd6bc8b5c7d.png';
+                  link.click();
+                }}
+                className="absolute bottom-2 left-2 inline-flex items-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors text-sm shadow-md"
+                title="Download as image"
+              >
+                <Image className="w-4 h-4" />
+                <span>Save Image</span>
+              </button>
             </div>
           </motion.section>
           
