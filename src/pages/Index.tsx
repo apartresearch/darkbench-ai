@@ -67,30 +67,14 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold">DarkBench Results</h2>
+            <div className="flex items-center justify-end mb-4">
               <button
                 onClick={() => {
-                  // Create a canvas to capture the SVG
-                  const svg = document.querySelector('svg');
-                  if (svg) {
-                    const svgData = new XMLSerializer().serializeToString(svg);
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    const img = document.createElement('img');
-                    img.onload = () => {
-                      canvas.width = img.width;
-                      canvas.height = img.height;
-                      ctx.fillStyle = '#ffffff';
-                      ctx.fillRect(0, 0, canvas.width, canvas.height);
-                      ctx.drawImage(img, 0, 0);
-                      const link = document.createElement('a');
-                      link.download = 'darkbench-heatmap.png';
-                      link.href = canvas.toDataURL();
-                      link.click();
-                    };
-                    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
-                  }
+                  // Download the pre-rendered heatmap image
+                  const link = document.createElement('a');
+                  link.download = 'darkbench-heatmap.png';
+                  link.href = '/lovable-uploads/b5f1597d-78ff-4e60-b3d1-5fd6bc8b5c7d.png';
+                  link.click();
                 }}
                 className="inline-flex items-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors text-sm"
                 title="Download as image"
