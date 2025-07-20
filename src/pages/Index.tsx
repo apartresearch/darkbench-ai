@@ -429,6 +429,19 @@ const HeatMap = ({ data, width, height, xCategories, onTooltipChange }) => {
             </text>
           </g>
         ))}
+        
+        {/* Copyright text in bottom right */}
+        <text
+          x={effectiveWidth - 10}
+          y={effectiveHeight + padding.bottom - 10}
+          textAnchor="end"
+          dominantBaseline="baseline"
+          fill="#666666"
+          fontSize={11}
+          className="font-medium select-none"
+        >
+          © 2025 Apart Research
+        </text>
       </g>
     </svg>
   );
