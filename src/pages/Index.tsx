@@ -1,5 +1,5 @@
 import React from "react";
-import { Sword, GraduationCap, Calendar, Code, MessageSquare } from "lucide-react";
+import { Sword, GraduationCap, Calendar, Code, MessageSquare, Image } from "lucide-react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
@@ -60,6 +60,59 @@ const Index = () => {
               A comprehensive benchmark for detecting manipulative techniques in LLM interactions.
             </p>
           </div>
+
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-8"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold">DarkBench Results</h2>
+              <button
+                onClick={() => {
+                  // Create a canvas to capture the SVG
+                  const svg = document.querySelector('svg');
+                  if (svg) {
+                    const svgData = new XMLSerializer().serializeToString(svg);
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const img = document.createElement('img');
+                    img.onload = () => {
+                      canvas.width = img.width;
+                      canvas.height = img.height;
+                      ctx.fillStyle = '#ffffff';
+                      ctx.fillRect(0, 0, canvas.width, canvas.height);
+                      ctx.drawImage(img, 0, 0);
+                      const link = document.createElement('a');
+                      link.download = 'darkbench-heatmap.png';
+                      link.href = canvas.toDataURL();
+                      link.click();
+                    };
+                    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+                  }
+                }}
+                className="inline-flex items-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors text-sm"
+                title="Download as image"
+              >
+                <Image className="w-4 h-4" />
+                <span>Save Image</span>
+              </button>
+            </div>
+            <div className="w-full overflow-x-auto relative">
+              <ChartContainer config={config} className="min-w-[800px]">
+                <ResponsiveContainer width="100%" height={600}>
+                  <HeatMap
+                    data={data}
+                    width={800}
+                    height={600}
+                    xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
+                    onTooltipChange={setTooltipData}
+                  />
+                </ResponsiveContainer>
+              </ChartContainer>
+            </div>
+          </motion.section>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -211,26 +264,6 @@ const Index = () => {
           </p>
         </motion.section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-4"
-        >
-          <div className="w-full overflow-x-auto relative">
-            <ChartContainer config={config} className="min-w-[800px]">
-              <ResponsiveContainer width="100%" height={600}>
-                <HeatMap
-                  data={data}
-                  width={800}
-                  height={600}
-                  xCategories={["DarkScore", "Anthropomorphization", "Brand Bias", "Harmful Generation", "Sneaking", "Sycophancy", "User Retention"]}
-                  onTooltipChange={setTooltipData}
-                />
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-        </motion.section>
 
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -270,6 +303,14 @@ const Index = () => {
           </div>
         </motion.section>
       </main>
+
+      <footer className="border-t border-border bg-background">
+        <div className="container mx-auto px-6 py-4 max-w-[900px]">
+          <p className="text-sm text-muted-foreground text-center">
+            © 2025 Apart Research. All rights reserved.
+          </p>
+        </div>
+      </footer>
 
       <div
         className={`fixed bottom-8 right-8 max-w-sm transition-opacity duration-200 ${
