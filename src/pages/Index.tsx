@@ -44,6 +44,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground relative">
+      {/* Banner */}
+      <div className="bg-primary text-primary-foreground py-3 text-center">
+        <p className="text-sm font-medium">Oral Spotlight at ICLR 2025</p>
+      </div>
+      
       <main className="container mx-auto px-6 py-12 max-w-[900px]">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
